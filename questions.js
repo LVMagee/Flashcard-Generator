@@ -1,7 +1,7 @@
 exports.questions = [
 	{
-		full: 'World War I began in 1914, shortly after the assassination of Arch-Duke Ferdinand of the Austro-Hungarian empire.',
-		cloze: '1914'
+		full: 'United States did not enter ww2 until after the Japanese bombed the American fleet in Pearl Harbor, Hawaii, on December 7, 1941',
+		cloze: 'Pearl Harbor'
 	},
 	{
 		full: 'Adolf Hitler was born in the city of Lintz in Austria, near the German border.',
@@ -44,8 +44,8 @@ exports.questions = [
 		cloze: 'France'
 	},
 	{
-		full: 'The Roman Emperor Hadrian built a massive wall across Northern Britain in 122 A.D.',
-		cloze: 'Hadrian'
+		full: 'The best-preserved section of the Great Wall was built in the 14th through 17th centuries A.D., during the Ming dynasty.',
+		cloze: 'Ming'
 	},
 	{
 		full: 'Martin Luther, concerned over the indulgence policy of the Catholic church would become the father of the Protestant movement in Europe.',

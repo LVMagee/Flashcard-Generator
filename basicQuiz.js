@@ -2,16 +2,16 @@
 var inquirer = require('inquirer');
 
 // Import the flash cards constructor implementations
-var basicCard = require('./BasicCard.js');
-// Import the full list of questions
-var questions = require('./questions.js').questions;
+var basicCard = require('./main.js');
+// Import the full list of questions for basic
+var basicQuestions = require('./basicQuestions.js').basicQuestions;
 
-// Variable that holds the cloze-deleted questions list
+// Variable that holds the basic questions list
 var closeQuestions = [];
 
-// Populate the cloze-deleted questions list
-for (var i = 0; i < questions.length; i++) {
-    var q = new basicCard.ClozeCard(questions[i].full, questions[i].cloze);
+// Populate the basic questions list
+for (var i = 0; i < basicQuestions.length; i++) {
+    var q = new basicCard.BasicCard(basicQuestions[i].front, basicQuestions[i].back);
     closeQuestions.push(q);
 }
 
@@ -22,19 +22,19 @@ var answerRight = 0;
 // How many questions the user has gotten wrong
 var answerWrong = 0;
 
-// askQuestion prompts the user to answer a given cloze-deleted question
+// askQuestion prompts the user to answer a given basic question
 function askQuestion() {
     inquirer.prompt([
-        {
-            type: 'input',
-            message: closeQuestions[currentQuestion].partial + '\nAnswer: ',
-            name: 'userGuess'
-        }
+    {
+        type: 'input',
+        message: closeQuestions[currentQuestion].front + '\nAnswer: ',
+        name: 'userGuess'
+    }
     ]).then(function (answers) {
         console.log('\n');
 
         // Check if the user has guessed correctly
-        if (answers.userGuess.toLowerCase() === closeQuestions[currentQuestion].cloze.toLowerCase()) {
+        if (answers.userGuess.toLowerCase() === closeQuestions[currentQuestion].back.toLowerCase()) {
             console.log('Correct!');
             answerRight++;
         } else {
@@ -43,7 +43,7 @@ function askQuestion() {
         }
 
         // Show the correct answer
-        console.log(closeQuestions[currentQuestion].full);
+        console.log(closeQuestions[currentQuestion].back);
         console.log('-------------------------------------\n');
 
         // Advance to the next question
@@ -54,16 +54,15 @@ function askQuestion() {
             console.log('Game Over!');
             console.log('Correct Answers: ' + answerRight);
             console.log('Incorrect Answers: ' + answerWrong);
-
             console.log('-------------------------------------\n');
 
             // Prompt the user to play again
             inquirer.prompt([
-                {
-                    type: 'confirm',
-                    message: 'Would you like to play again?',
-                    name: 'playAgain'
-                }
+            {
+                type: 'confirm',
+                message: 'Would you like to play again?',
+                name: 'playAgain'
+            }
             ]).then(function (answers) {
                 if (answers.playAgain) {
                     // Reset the game
@@ -75,12 +74,12 @@ function askQuestion() {
                     askQuestion();
                 } else {
                     // Exit the game
-                    console.log('Thanks for playing! Goodbuy!');
+                    console.log('Thanks for playing! Goodbye!');
                 }
-            })
+            });
         }
-    })
-}
+    });
 
+}
 // Begin asking the questions!
 askQuestion();
