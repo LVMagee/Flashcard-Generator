@@ -1,0 +1,26 @@
+{
+  "name": "flashcard",
+  "version": "1.0.0",
+  "description": "flashcard game",
+  "main": "main.js",
+  "scripts": {
+    "test": "basicquiz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LVMagee/Flashcard-Generator.git"
+  },
+  "keywords": [
+    "flashcard",
+    "game"
+  ],
+  "author": "lv magee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LVMagee/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/LVMagee/Flashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.0.6"
+  }
+}
